@@ -4,7 +4,7 @@ Uma aplicação web interativa para análise e visualização de dados salariais
 
 ## 🛠️ Tecnologias Utilizadas
 
-Projeto de visualização e análise de dados salariais na área de dados. Este dashboard foi desenvolvido como parte da **Imersão de Dados com Python** da Alura.
+Projeto de visualização e análise de dados salariais na área de dados. Este dashboard foi desenvolvido como parte da **Imersão de Dados com Python** da Alura com algumas implementações de pipeline CI/CD com Docker-compose e GitHub Actions.
 
 Principais funcionalidades:
 - Filtros interativos por ano, senioridade, tipo de contrato e tamanho da empresa
@@ -19,6 +19,9 @@ Tecnologias utilizadas
 - Plotly
 
 Como executar
+
+### Opção 1: Local (Desenvolvimento)
+
 1. Crie e ative um ambiente virtual:
 
 ```bash
@@ -41,6 +44,24 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+A aplicação estará acessível em `http://localhost:8501`
+
+### Opção 2: Docker (Produção / CI-CD)
+
+Tenha o Docker e Docker Compose instalados. Após clonar o repositório:
+
+```bash
+docker-compose up --build
+```
+
+A aplicação será automaticamente iniciada e estará acessível em `http://localhost:8501`
+
+Para parar o container:
+
+```bash
+docker-compose down
+```
+
 Estrutura do projeto (resumida)
 - `app.py` — orquestrador principal do dashboard
 - `config.py` — constantes e configurações
@@ -49,6 +70,9 @@ Estrutura do projeto (resumida)
 - `metrics.py` — cálculo e exibição de métricas (KPIs)
 - `charts.py` — funções para geração dos gráficos
 - `requirements.txt` — dependências do projeto
+- `Dockerfile` — imagem Docker otimizada multi-stage
+- `docker-compose.yml` — orquestração do container com healthcheck e limites de recursos
+- `.github/workflows/build-and-publish.yml` — pipeline CI/CD (GitHub Actions)
 
 Créditos
 - Desenvolvido por: Mathews Moura através da Imersão de Dados com Python da Alura
@@ -64,10 +88,3 @@ Licença
 - **Pandas** (>=1.5, <3.0) - Manipulação e análise de dados
 - **Streamlit** (>=1.20, <2.0) - Framework para criação de aplicações web
 - **Plotly** (>=5.0, <6.0) - Visualizações interativas
-
-## 🚀 Como Executar
-
-Para iniciar a aplicação, execute o seguinte comando no terminal:
-
-```bash
-streamlit run app.py

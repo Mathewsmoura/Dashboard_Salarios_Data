@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+ENV/
+.env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# Git
+.git
+.gitignore
+
+# Streamlit local state (apenas a pasta de cache, não o config.toml)
+.streamlit/cache*
+.streamlit/logs*
+
+# Others
+*.log

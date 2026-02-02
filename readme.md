@@ -2,6 +2,9 @@
 
 Uma aplicação web interativa para análise e visualização de dados salariais na área de dados.
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker)
+
 ## 🛠️ Tecnologias Utilizadas
 
 Projeto de visualização e análise de dados salariais na área de dados. Este dashboard foi desenvolvido como parte da **Imersão de Dados com Python** da Alura com algumas implementações de pipeline CI/CD com Docker-compose e GitHub Actions.
@@ -17,6 +20,16 @@ Tecnologias utilizadas
 - Streamlit
 - Pandas
 - Plotly
+
+### 📸 Visualização do Dashboard (Streamlit)
+
+![Dashboard no Streamlit](assets/Dashboard.jpg)
+
+*Graph View mostrando avisualização de dados salariais na área de dados.*
+
+![Dados consolidados](assets/Planilha.jpg)
+
+*Planilha consolidada mostrando os dados como um todo.*
 
 Como executar
 

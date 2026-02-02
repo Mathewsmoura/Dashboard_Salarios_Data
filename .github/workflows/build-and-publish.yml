@@ -81,7 +81,7 @@ jobs:
         run: |
           pip install flake8
           # Para este projeto, fazemos apenas um check simples
-          python -m py_compile app.py config.py data_loader.py filters.py metrics.py charts.py
+          python -m py_compile src/app.py src/config.py src/data_loader.py src/filters.py src/metrics.py src/charts.py
 
       - name: Verificar imports
         run: python -c "import streamlit; import pandas; import plotly; print('✓ Todas as dependências carregadas com sucesso')"

@@ -1,11 +1,20 @@
+import os
+import sys
 import streamlit as st
 
-# Importações dos módulos separados
-from config import PAGE_CONFIG
-from data_loader import get_filtered_data
-from filters import render_filters, apply_filters
-from metrics import calculate_metrics, display_metrics
-from charts import display_all_charts
+# Garantir que a raiz do projeto esteja no sys.path para permitir imports absolutos
+ROOT = os.path.dirname(os.path.dirname(__file__))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+# Importações como pacote absoluto `src` — funciona tanto com
+# `python -m src.app` quanto com `streamlit run src/app.py` quando
+# a raiz do projeto estiver no `PYTHONPATH` ou adicionada acima.
+from src.config import PAGE_CONFIG
+from src.data_loader import get_filtered_data
+from src.filters import render_filters, apply_filters
+from src.metrics import calculate_metrics, display_metrics
+from src.charts import display_all_charts
 
 # --- Configuração da página ---
 st.set_page_config(**PAGE_CONFIG)

@@ -1,7 +1,7 @@
 # --- Lógica de Filtros ---
 
 import streamlit as st
-from config import FILTER_COLUMNS
+from .config import FILTER_COLUMNS
 
 
 def render_filters(df):

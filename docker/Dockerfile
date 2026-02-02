@@ -52,6 +52,7 @@ USER appuser
 
 # Variáveis de ambiente específicas do Streamlit
 ENV STREAMLIT_SERVER_PORT=8000
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 ENV STREAMLIT_SERVER_HEADLESS=true
 ENV STREAMLIT_SERVER_ENABLECORS=false
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
@@ -62,5 +63,5 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
   CMD curl -f http://localhost:8000/ || exit 1
 
-# Entrypoint — executa a aplicação Streamlit (sem flags que conflitam com config.toml)
-ENTRYPOINT ["streamlit", "run", "app.py"]
+# Entrypoint — executa a aplicação Streamlit
+ENTRYPOINT ["streamlit", "run", "src/app.py"]

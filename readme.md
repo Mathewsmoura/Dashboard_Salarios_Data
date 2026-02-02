@@ -38,13 +38,45 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
-3. Execute o app:
+3. Execute o app (opções):
 
-```bash
-streamlit run app.py
-```
+- Recomendada (scripts locais):
 
-A aplicação estará acessível em `http://localhost:8501`
+	- PowerShell (Windows):
+
+		```powershell
+		.\run_local.ps1
+		```
+
+	- Bash (Linux / macOS):
+
+		```bash
+		./run_local.sh
+		```
+
+	Esses scripts predefinem `STREAMLIT_SERVER_PORT=5000` e `STREAMLIT_SERVER_ADDRESS=localhost` para execução local.
+
+- Usando o CLI do Streamlit com `PYTHONPATH` (garante que `src` esteja no caminho de import):
+
+	- Linux / macOS:
+
+		```bash
+		PYTHONPATH=. streamlit run src/app.py
+		```
+
+	- Windows PowerShell:
+
+		```powershell
+		$env:PYTHONPATH = "."; streamlit run src/app.py
+		```
+
+- Alternativa com o módulo do Python:
+
+	```bash
+	python -m streamlit run src/app.py
+	```
+
+A aplicação estará acessível em `http://localhost:5000` quando executada pelos scripts locais, ou na porta configurada pelo ambiente (ver `docker/Dockerfile` e `docker-compose.yml` para configuração Docker).
 
 ### Opção 2: Docker (Produção / CI-CD)
 
@@ -54,7 +86,7 @@ Tenha o Docker e Docker Compose instalados. Após clonar o repositório:
 docker-compose up --build
 ```
 
-A aplicação será automaticamente iniciada e estará acessível em `http://localhost:8501`
+A aplicação será automaticamente iniciada e estará acessível em `http://localhost:8000`
 
 Para parar o container:
 
@@ -63,16 +95,29 @@ docker-compose down
 ```
 
 Estrutura do projeto (resumida)
-- `app.py` — orquestrador principal do dashboard
-- `config.py` — constantes e configurações
-- `data_loader.py` — carregamento e cache dos dados
-- `filters.py` — lógica e aplicação de filtros
-- `metrics.py` — cálculo e exibição de métricas (KPIs)
-- `charts.py` — funções para geração dos gráficos
-- `requirements.txt` — dependências do projeto
-- `Dockerfile` — imagem Docker otimizada multi-stage
-- `docker-compose.yml` — orquestração do container com healthcheck e limites de recursos
-- `.github/workflows/build-and-publish.yml` — pipeline CI/CD (GitHub Actions)
+```
+Dashboard_salarios_dt/
+├── src/
+│   ├── __init__.py
+│   ├── app.py                 — entrada principal da aplicação
+│   ├── config.py              — constantes e configurações
+│   ├── data_loader.py         — carregamento e cache dos dados
+│   ├── filters.py             — lógica de filtros
+│   ├── metrics.py             — cálculo de métricas (KPIs)
+│   └── charts.py              — funções de gráficos
+├── docker/
+│   ├── Dockerfile             — imagem Docker otimizada multi-stage
+│   └── .dockerignore          — arquivos ignorados no build
+├── .streamlit/
+│   └── config.toml            — configurações do Streamlit
+├── .github/
+│   └── workflows/
+│       └── build-and-publish.yml — pipeline CI/CD (GitHub Actions)
+├── requirements.txt           — dependências do projeto
+├── readme.md                  — este arquivo
+├── .gitignore                 — arquivos ignorados pelo Git
+└── docker-compose.yml         — orquestração do container
+```
 
 Créditos
 - Desenvolvido por: Mathews Moura através da Imersão de Dados com Python da Alura

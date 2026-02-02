@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-from config import DATA_URL
+from .config import DATA_URL
 
 
 @st.cache_data

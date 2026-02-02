@@ -2,7 +2,7 @@
 
 import streamlit as st
 import plotly.express as px
-from config import CHART_CONFIG, CHART_COLOR_SCALE
+from .config import CHART_CONFIG, CHART_COLOR_SCALE
 
 
 def plot_top_cargos(df_filtrado):

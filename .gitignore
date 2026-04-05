@@ -80,3 +80,6 @@ local_settings.py
 
 # Ignore Python compiled wheels
 *.whl
+
+#others
+.docx

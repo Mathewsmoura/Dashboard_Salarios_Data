@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-from .config import DATA_URL
+from .config import DATA_URL, CSV_DTYPES
 
 
 @st.cache_data
@@ -12,7 +12,7 @@ def load_data():
     O cache é mantido enquanto o app está rodando.
     """
     try:
-        df = pd.read_csv(DATA_URL)
+        df = pd.read_csv(DATA_URL, dtype=CSV_DTYPES)
         return df
     except Exception as e:
         st.error(f"Erro ao carregar dados: {str(e)}")

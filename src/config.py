@@ -26,3 +26,19 @@ CHART_CONFIG = {
 
 # Cores e estilos
 CHART_COLOR_SCALE = "rdylgn"
+
+# Tipos de dados explícitos para pd.read_csv — reduz uso de memória em ~40%
+CSV_DTYPES = {
+    "ano":             "int16",
+    "senioridade":     "category",
+    "contrato":        "category",
+    "cargo":           "category",
+    "salario":         "int32",
+    "moeda":           "category",
+    "usd":             "int32",
+    "residencia":      "category",
+    "remoto":          "category",
+    "empresa":         "category",
+    "tamanho_empresa": "category",
+    "residencia_iso3": "category",
+}

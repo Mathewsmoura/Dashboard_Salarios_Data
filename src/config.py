@@ -27,6 +27,9 @@ CHART_CONFIG = {
 # Cores e estilos
 CHART_COLOR_SCALE = "rdylgn"
 
+# Cargo usado como filtro no mapa coroplético por país
+MAP_CARGO_FILTER = "Data Scientist"
+
 # Tipos de dados explícitos para pd.read_csv — reduz uso de memória em ~40%
 CSV_DTYPES = {
     "ano":             "int16",

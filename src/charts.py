@@ -2,7 +2,7 @@
 
 import streamlit as st
 import plotly.express as px
-from .config import CHART_CONFIG, CHART_COLOR_SCALE
+from .config import CHART_CONFIG, CHART_COLOR_SCALE, MAP_CARGO_FILTER
 
 
 def plot_top_cargos(df_filtrado):
@@ -85,7 +85,7 @@ def plot_data_scientist_by_country(df_filtrado):
         df_filtrado: DataFrame filtrado
     """
     if not df_filtrado.empty:
-        df_ds = df_filtrado[df_filtrado['cargo'] == 'Data Scientist']
+        df_ds = df_filtrado[df_filtrado['cargo'] == MAP_CARGO_FILTER]
         
         if not df_ds.empty:
             media_ds_pais = df_ds.groupby('residencia_iso3')['usd'].mean().reset_index()

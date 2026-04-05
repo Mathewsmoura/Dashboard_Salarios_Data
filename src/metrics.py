@@ -41,5 +41,5 @@ def display_metrics(metrics):
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Salário médio", f"${metrics['salario_medio']:,.0f}")
     col2.metric("Salário máximo", f"${metrics['salario_maximo']:,.0f}")
-    col3.metric("Total de registros", f"${metrics['total_registros']:,}")
+    col3.metric("Total de registros", f"{metrics['total_registros']:,}")
     col4.metric("Cargo mais frequente", metrics['cargo_mais_frequente'])

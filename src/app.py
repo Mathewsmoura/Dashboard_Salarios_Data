@@ -32,7 +32,7 @@ df_filtrado = apply_filters(df, filters)
 
 # --- Conteudo principal ---
 st.title("Dashboard de Análise de Salários na Área de Dados")
-st.markdown("Explore os dados salariais na área de dados nos últimos anos. Utilize os filtos à esquerda para refinar sua análise.")
+st.markdown("Explore os dados salariais na área de dados nos últimos anos. Utilize os filtros à esquerda para refinar sua análise.")
 
 # --- Métricas Principais (KPIs) ---
 metrics = calculate_metrics(df_filtrado)

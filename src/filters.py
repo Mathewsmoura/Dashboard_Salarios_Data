@@ -19,19 +19,22 @@ def render_filters(df):
     filters = {}
     
     for column, label in FILTER_COLUMNS.items():
-        values_disponiveis = sorted(df[column].unique())
-        value_selecionado = st.sidebar.selectbox(
+        # Utiliza dropna() para contornar TypeErrors em caso de nulos (ES-2/QA Note)
+        values_disponiveis = sorted(df[column].dropna().unique())
+        
+        valores_selecionados = st.sidebar.multiselect(
             label,
-            options=["Todos"] + list(values_disponiveis),
-            index=0,
+            options=list(values_disponiveis),
+            default=[],
+            placeholder="Selecione... (Vazio = Todos)",
             key=f"filter_{column}"
         )
         
-        # Converte seleção em lista para manter compatibilidade
-        if value_selecionado == "Todos":
+        # Se vazio, consideramos que o analista deseja visualizar 'Todos' os dados
+        if not valores_selecionados:
             filters[column] = values_disponiveis
         else:
-            filters[column] = [value_selecionado]
+            filters[column] = valores_selecionados
     
     return filters
 

@@ -45,7 +45,7 @@ display_all_charts(df_filtrado)
 
 # --- Tabela de Dados Detalhados ---
 st.subheader("Dados Detalhados")
-st.dataframe(df_filtrado)
+st.dataframe(df_filtrado, height=400)
 
 # --- Rodapé ---
 st.markdown("---")

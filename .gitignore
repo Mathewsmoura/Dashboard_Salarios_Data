@@ -82,4 +82,7 @@ local_settings.py
 *.whl
 
 #others
-.docx
+*.docx
+
+# SDD Specs
+.github/specs/

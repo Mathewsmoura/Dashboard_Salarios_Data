@@ -50,6 +50,17 @@ def apply_filters(df, filters):
     Returns:
         DataFrame filtrado
     """
+    # Short-circuit (ES-4): Bypass de performance caso nenhum item restrinja a busca
+    precisa_filtrar = False
+    for col in ['ano', 'senioridade', 'contrato', 'tamanho_empresa']:
+        valores_unicos = df[col].dropna().unique()
+        if col in filters and len(filters[col]) < len(valores_unicos):
+            precisa_filtrar = True
+            break
+            
+    if not precisa_filtrar:
+        return df
+
     df_filtrado = df[
         (df['ano'].isin(filters.get('ano', df['ano'].unique()))) &
         (df['senioridade'].isin(filters.get('senioridade', df['senioridade'].unique()))) &

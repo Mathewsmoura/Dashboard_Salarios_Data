@@ -26,7 +26,7 @@ def render_filters(df):
             label,
             options=list(values_disponiveis),
             default=[],
-            placeholder="Selecione... (Vazio = Todos)",
+            placeholder="Selecionar...",
             key=f"filter_{column}"
         )
         
